@@ -73,6 +73,50 @@ The model was evaluated using multiple metrics to provide a comprehensive perfor
 
 The initial Random Forest model achieved 55% accuracy across all metrics. Through GridSearchCV optimization of the hyperparameters, the model's performance improved significantly to 72% accuracy, with corresponding improvements in precision, recall, and F1-scores, representing a substantial 16 percentage point increase.
 
+## Results and Analysis
+
+***ROC Curve***
+
+![ROC_before](https://github.com/user-attachments/assets/cb1dcc0f-44c9-4371-bc57-59329e397cc1)
+
+
+The Initial Model Performance had an AUC of 0.49, which means that it's performing poorly. The Model struggles to distinguish between mood categories effectively.
+
+![ROC_best](https://github.com/user-attachments/assets/ad73d112-a1db-4c88-a616-052cb31f45d7)
+
+
+The Optimized Model performs much better, as indicated with an AUC of 0.68, this is shows a 39% improvement of the AUC. Meaning the model can distinguish between mood categories.
+GridSearchCV hyperparameter helped transform the failing model into a functional classifier. This improvement translates to a better mood-content matching for Chilio users
+
+
+***Heat Map***
+
+   ![Updated_Random_forest](https://github.com/user-attachments/assets/fe979b5c-2c9a-4eb4-a56e-3b3ab269ca22)
+
+
+The initial model heat map shows heavy confusion between opposite moods (Intense↔Uplifting)
+
+![best_random_forest](https://github.com/user-attachments/assets/3206eb9d-21e8-4440-b7aa-3a6eabf44147)
+
+
+The Optimized model heatmap shows that errors are more evenly distributed, indicating a better understanding of emotional nuance
+
+***Bar Graph***
+
+![Barchart_emotions](https://github.com/user-attachments/assets/ddf471ba-afea-4167-837d-71b8ade24350)
+
+The  initial Model graph shows that the Uplifting mood is at 0.70 due to the large sample size, calm performs average despite the small sample size. Dark Struggles and Intense has the worst performance
+
+![Barchart_emotions_best](https://github.com/user-attachments/assets/7bf553d1-9bcb-4c3f-bf5f-25d1ade93035)
+
+
+The reworked model shows some interesting changes that were taken to improve the model. Uplifting has decreased to 0.48 but is more balanced, calm is at 0.38, which is still reasonable, dark decreased performance to 0.23, and intense (0.27) improved from being the worst performer
+
+
+
+
+
+
 
 
 
