@@ -128,6 +128,21 @@ This mood-based recommendation system transforms Chilio's content discovery from
 
 
 ## NEXT STEPS
+Inorder to imporve the model the next steps include:
+
+- Expand training dataset with balanced mood representation
+- Implement ensemble methods for minority mood categories
+- Develop real-time user feedback integration for continuous model improvement
+- Explore deep learning approaches for enhanced emotional text analysis
+
+
+## CONTACT 
+
+[EMAIL](soniamshila@gmail.com)
+
+[LINKEDIN](https://www.linkedin.com/in/sonia-mshila-85a16b131/)
+
+
 
 
 
