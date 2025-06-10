@@ -136,7 +136,7 @@ Inorder to imporve the model the next steps include:
 - Explore deep learning approaches for enhanced emotional text analysis
 
 
-## Contact 
+## CONTACT 
 
 [EMAIL](soniamshila@gmail.com)
 
