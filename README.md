@@ -2,6 +2,9 @@
 by [SONIA MSHILA](https://www.linkedin.com/in/sonia-mshila-85a16b131/)
 
 
+![Couple watching Movie](pexels-mikhail-nilov-7719224.jpg)
+Image by [Mikhail Nilov](https://www.pexels.com/photo/a-couple-on-a-couch-with-a-bowl-of-popcorn-7719215/)
+
 
 ## ABOUT CHILIO
 Chilio Streaming isn't just another streaming service—it's where bold content meets chill vibes. We're here to spice up your screen time with a hot mix of must-watch originals, cult classics, offbeat gems, and everything in between. If it's wild, weird, or just plain addictive, it's probably on Chilio.
