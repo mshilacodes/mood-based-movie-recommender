@@ -5,3 +5,4 @@ scikit-learn == 1.7.2
 nltk == 3.9.2
 NRCLex == 3.0.0
 numpy  == 2.3.5
+pickle == 4.0
