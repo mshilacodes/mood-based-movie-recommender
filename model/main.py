@@ -9,7 +9,7 @@ st.title('CHILLIO')
 st.markdown("Queer movie recommender, matching movies to your mood!")
 
 
-emotion = st.selectbox("Mood",("Dark","Uplifting","Calm","Intense"))
+emotion = st.selectbox("Mood",("Calm","Dark","Intense", "Uplifting"))
 year = st.slider('Year Range', min_value=1950, max_value=2024, value=(1990,2024))
 
 
