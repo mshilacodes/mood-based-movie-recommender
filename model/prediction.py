@@ -18,7 +18,10 @@ with open(MODEL_PATH, "rb") as f:
 
 
 with open(COLS_PATH, "rb") as f:
-      training_cols=pickle.load(f) 
+      training_cols=pickle.load(f)
+
+with open(KEYWORD_PATH, "rb") as f:
+      keyword_cols = pickle.load(f) 
 
 with open(IMPUTER_PATH, "rb") as f:
       imputer = pickle.load(f)
@@ -35,9 +38,9 @@ with open(NUM_PATH, 'rb') as f:
 print("Loaded training columns:", len(training_cols))
 
 
-def predict(encoded_emotion):
+def predict(data):
 
-    emotion,year_min,year_max = DeprecationWarning
+    emotion,year_min,year_max = data
 
     X = pd.DataFrame(np.zeros((1, len(training_cols))), columns=training_cols)
     
@@ -53,5 +56,8 @@ def predict(encoded_emotion):
     for col in keyword_cols:
         if col in X.columns:
             X[col] = 0
+
+    X[num_features] = imputer.transform(X[num_features])
+
     # Predict
     return clf.predict(X)
