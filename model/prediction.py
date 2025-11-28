@@ -31,7 +31,7 @@ def predict(data):
 
     df = pd.DataFrame([{
 
-        "emotions": emotions
+        "emotions": encoded_emotion
     }])
 
     df = df.reindex(columns=training_cols, fill_value=0)
