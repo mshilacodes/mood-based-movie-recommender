@@ -24,7 +24,7 @@ with open(IMPUTER_PATH, "rb") as f:
       imputer = pickle.load(f)
 
 with open(TFIDF_PATH, 'rb') as f:
-      tfidf =pickle.load()
+      tfidf =pickle.load(f)
 
 with open(EMOTION_PATH, "rb"):
       emotion_encoder = pickle.load(f)
