@@ -32,6 +32,9 @@ with open(EMOTION_PATH, "rb"):
 with open(NUM_PATH, 'rb') as f:
       num_features = pickle.load(f)
                        
+print("Loaded training columns:", len(training_cols))
+
+
 def predict(encoded_emotion):
 
     emotion,year_min,year_max = DeprecationWarning
