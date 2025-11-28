@@ -3,28 +3,29 @@ import numpy as np
 import pandas as pd
 import os
 
-MODEL_PATH = "model/rf_classifier_model.pkl"
-COLS_PATH = "model/columns.pkl"
-KEYWORD_PATH = "model/keyword_cols.pkl"
-
-
-
-def predict(data):
-    with open(MODEL_PATH, "rb") as f:
+def predict(encoded_emotion):
+    # Load the trained model
+    with open("model/rf_classifier_model.pkl", "rb") as f:
         clf = pickle.load(f)
 
-    with open(COLS_PATH, "rb") as f:
-        training_cols = pickle.load(f)
+    # ---- RECREATE TRAINING INPUT STRUCTURE ----
+    # Replace these with the exact column names used during training
+    # (you can confirm them with the notebook: df.columns)
+    feature_columns = [
+        "mood",          # the emotion
+        "year_min",      # year lower range
+        "year_max"       # year upper range
+    ]
 
-    with open(KEYWORD_PATH, "rb") as f:
-        keyword_cols = pickle.load(f)
+    # Example: from Streamlit you must pass all inputs
+    mood_value, year_min, year_max = encoded_emotion
 
+    # Build the correct input structure
+    X = pd.DataFrame([{
+        "mood": mood_value,
+        "year_min": year_min,
+        "year_max": year_max
+    }])
 
-    X = pd.DataFrame(np.zeros((1,len(training_cols))), columns=training_cols)
-
-    if "emotion" in X.columns:
-        X.loc[0, "emotion"] = emotion_code
-    else:
-        raise ValueError("Column 'emotion' was not in training data.")
-
-    return clf.predict(X)[0]
+    # Predict
+    return clf.predict(X)
