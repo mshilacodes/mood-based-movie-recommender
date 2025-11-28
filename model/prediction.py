@@ -27,11 +27,11 @@ with open(KEYWORD_PATH, "rb") as f:
 
 def predict(data):
 
-    encoded_emotion = data[0][0]
+    encoded_emotion = int(data[0][0])
 
     df = pd.DataFrame([{
 
-        "emotions": encoded_emotion
+        "emotions": emotions
     }])
 
     df = df.reindex(columns=training_cols, fill_value=0)
@@ -42,5 +42,7 @@ def predict(data):
     
     df_imputed = imputer.transform(df)
 
+    prediction = clf.predict(df_imputed)
 
-    return clf.predict(df_imputed)
+
+    return prediction
