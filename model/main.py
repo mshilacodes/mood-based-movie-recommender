@@ -28,6 +28,6 @@ if encoded_emotion is None:
 
 else:
     if st.button("Werk"):
-        result = predict([[encoded_emotion]])
+        result = predict(np.array([[encoded_emotion]]))
         st.text(f"Recommended vibe: {result[0]}")
 
