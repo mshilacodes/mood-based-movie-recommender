@@ -26,7 +26,7 @@ with open(IMPUTER_PATH, "rb") as f:
 with open(TFIDF_PATH, 'rb') as f:
       tfidf =pickle.load(f)
 
-with open(EMOTION_PATH, "rb"):
+with open(EMOTION_PATH, "rb") as f:
       emotion_encoder = pickle.load(f)
 
 with open(NUM_PATH, 'rb') as f:
