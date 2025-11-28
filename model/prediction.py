@@ -1,15 +1,14 @@
 import pickle
 import numpy as np
+import os
 
 def predict(data):
+
+    model_path = os.path.join(os.path.dirname(__file__), "rf_classifier_model.pkl")
     #load model
     with open("model/rf_classifier_model.pkl", "rb") as f:
         clf=pickle.load(f)
 
-    with open("model/rf_classifier_model.pkl", "rb") as f:
-        le=pickle.load(f)
+    X = np.array(data, dtype=float)
 
-    encoded = le.transform(data)
-    encoded = np.array(encoded).reshape(-1,1)
-
-    return clf.predict(encoded)
+    return clf.predict(X)
