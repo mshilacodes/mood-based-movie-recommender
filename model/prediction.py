@@ -62,7 +62,7 @@ def predict(mood, year_min, year_max):
         "genre_name": "Drama",
         "original_title": "User Request",
         "sentiment_polarity": polarity,
-        "sentiment_subjectivity": subjectivity
+        "sentiment_subjectivity": subjectivity,
         **lex_counts
 
 
