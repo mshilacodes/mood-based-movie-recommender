@@ -22,8 +22,9 @@ emotion_mapping = {
 }
 
 encoded_emotion = emotion_mapping.get(emotion)
+year_min, year_max  = year
 
 if st.button("Werk"):
-    data = (encoded_emotion, year[0], year[1])
+    data = (encoded_emotion, year_min, year_max)
     result = predict(data)
     st.text(f"Recommended vibe: {result[0]}")
