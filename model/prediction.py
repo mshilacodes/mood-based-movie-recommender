@@ -19,7 +19,12 @@ def predict(emotion, year_min, year_max):
     input_df = pd.DataFrame([{
         "emotion": emotion,
         "year_min": year_min,
-        "year_max": year_max
+        "year_max": year_max,
+        "overview": "",                  
+        "genre_name": "",                
+        "original_title": "",            
+        "popularity": 0,                 
+        "release_year": year_min  
     }])
 
     return pipeline.predict(input_df)
