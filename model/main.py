@@ -8,7 +8,7 @@ from prediction import predict
 st.title('CHILLIO')
 st.markdown("Queer movie recommender, matching movies to your mood!")
 
-
+#User input
 emotion = st.selectbox("Mood",("Calm","Dark","Intense", "Uplifting"))
 year = st.slider('Year Range', min_value=1950, max_value=2024, value=(1990,2024))
 
@@ -21,9 +21,9 @@ emotion_mapping = {
 
 }
 
-encoded_emotion = emotion_mapping.get(emotion)
+encoded_emotion = emotion_mapping[emotion]
 year_min, year_max  = year
 
 if st.button("Werk"):
     result = predict(encoded_emotion,year_min,year_max)
-    st.text(f"Recommended vibe: {result[0]}")
+    st.success(f"Recommended vibe: **{result[0]}**")
