@@ -7,7 +7,7 @@ from sklearn.pipeline import Pipeline
 with open("model/preprocessing.pkl", "rb") as f:
     preprocessing = pickle.load(f)
 
-with open("model/model_pipe.pkl", "rb") as f:
+with open("model/rf_classifier_model.pkl", "rb") as f:
     model = pickle.load(f)
 
 pipeline = Pipeline([
