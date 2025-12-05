@@ -58,11 +58,11 @@ def recommend_movie(mood:str, n_recs: int = 5):
         recommendations.append({
             "title": row.get("original_title", "Unknown"),
             "genre": row.get("genre_name", "Unknown"),
-            "overview": row.get("overview", "No description available.")
-            "year": row.get("release_year", "Unknown")
+            "overview": row.get("overview", "No description available."),
+            "year": row.get("release_year", "Unknown"),
             "poster_url": poster(row.get("original_title", "")),
+            })
 
-        })
     return{
         "user_mood": mood,
         "recommendations": recommendations
