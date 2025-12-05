@@ -23,14 +23,21 @@ st.sidebar.header("🗃️ Filters")
 content = pd.read_csv("model/content_cleaned.csv")
 
 all_genres = sorted(list(set(",".join(content["genre_name"].dropna()).split(","))))
+content["release_year"] = pd.to_numeric(content["release_year"], errors="coerce")
+
+content = content[content["release_year"] >= 1900]
+
+min_year = int(content["release_year"].min())
+max_year = int(content["release_year"].max())
 
 genre_filter = st.sidebar.multiselect("Filter by Genre: ", all_genres)
+
 year_min, year_max = st.sidebar.slider(
     "Release Year Range",
     
-    min_value = int(content["release_year"].min()),
-    max_value = int(content["release_year"].max()),
-    value=(2000,2023)
+    min_value = min_year,
+    max_value = max_year,
+    value=(2000,max_year)
 ) 
 
 #User input
