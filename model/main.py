@@ -20,7 +20,7 @@ st.markdown("Queer movie recommender, matching movies to your mood!")
 
 st.sidebar.header("🗃️ Filters")
 
-content = pd.read_csv("model/content.csv")
+content = pd.read_csv("model/content_cleaned.csv")
 
 all_genres = sorted(list(set(",".join(content["genre_name"].dropna()).split(","))))
 
