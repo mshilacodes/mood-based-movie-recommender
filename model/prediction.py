@@ -43,7 +43,7 @@ def recommend_movie(mood:str, n_recs: int = 5):
 
     for _, row in selected.iterrows():
         recommendations.append({
-            "title": row.get("title", "Unknown"),
+            "title": row.get("original_title", "Unknown"),
             "genre": row.get("genre_name", "Unknown"),
             "overview": row.get("overview", "No description available.")
 
