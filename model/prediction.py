@@ -1,10 +1,10 @@
 import pickle
 import numpy as np
 import pandas as pd
-import re
+import difflib
+import random
 import os
-from sklearn.pipeline import Pipeline
-from textblob import TextBlob
+
 
 with open("model/preprocessing.pkl", "rb") as f:
     preprocessing = pickle.load(f)
@@ -12,63 +12,53 @@ with open("model/preprocessing.pkl", "rb") as f:
 with open("model/rf_classifier_model.pkl", "rb") as f:
     model = pickle.load(f)
 
-pipeline = Pipeline([
-    ("preprocess", preprocessing),
-    ("model", model)
-])    
+content = pd.read_csv("\content_cleaned.csv")
+
+MODEL_EMOTIONS = ['uplifting', 'dark', 'calm', 'intense']
 
 #Emotion lexicon 
 
-emotion_words = {
+EMOTIONS = {
     'uplifting': ['love', 'hope', 'acceptance', 'authenticity', 'release', 'pride', 'together', 'beautiful', 'freedom', 'romance', 'celebration'],
     'dark': ['loneliness', 'despair', 'death', 'loss', 'grief', 'tragedy', 'rage','dark', 'murder', 'crime', 'dangerous', 'addiction', 'AIDS', 'fear', 'violence'],
     'intense': ['drama', 'struggling', 'obsession', 'wild', 'psychosexual', 'hallucinatory', 'intense', 'battle', 'conflict', 'power',  'transgression'],
     'calm': ['gentle', 'quiet', 'serene', 'peace', 'slowly', 'tender', 'acceptance', 'warm', 'soft', 'comfort', 'stable']
 }
 
-#synthetic overview
-synthetic_overviews = {
-    0: "A gentle calm story about peace, warmth, and quiet moments of comfort.",
-    1: "A dark tale filled with despair, danger, death, and deep emotional struggle.",
-    2: "An intense, powerful, dramatic story full of conflict and wild emotional tension.",
-    3: "An uplifting story about love, hope, pride, beautiful moments and freedom."
-}
 
-def compute_sentiment_features(text):
-    polarity = TextBlob(text).sentiment.polarity
-    subjectivity = TextBlob(text).sentiment.subjectivity
-    return polarity, subjectivity
-
-
-def compute_lexicon_counts(text):
-    counts = {}
-
-    for emotion, words in emotion_words.items():
-        pattern = '|'.join(words)
-        counts[f"{emotion}_words"] = len(re.findall(pattern, text, flags=re.IGNORECASE))
-    return counts
-
-def predict(mood, year_min, year_max):
-
-    overview = synthetic_overviews[mood]
-
-    polarity,subjectivity = compute_sentiment_features(overview)
+def recommend_movie(mood:str, n_recs: int = 5):
     
-    lex_counts = compute_lexicon_counts(overview)
-    data = {
-        "overview": overview,
-        "popularity": 5,
-        "release_year": int((year_min+year_max)/2),
-        "genre_name": "Drama",
-        "original_title": "User Request",
-        "sentiment_polarity": polarity,
-        "sentiment_subjectivity": subjectivity,
-        **lex_counts
+    matches = content[content['emotions']== mood]
 
+    if matches.empty:
+        return{
+            "error" : f"No movies found that match mood category'{mood}'."
+        }
+    
+    n_recs = min(n_recs, len(matches))
 
+    selected = matches.sample(n_recs)
+
+    recommendations = []
+
+    for _, row in selected.iterrows():
+        recommendations.append({
+            "title": row.get("title", "Unknown"),
+            "genre": row.get("genre_name", "Unknown"),
+            "overview": row.get("overview", "No description available.")
+
+        })
+    return{
+        "user_mood": mood,
+        "recommendations": recommendations
     }
 
-    df = pd.DataFrame([data])
-    
+if __name__ == "__main__":
+    user_input = input("Enter your mood:  ")
+    results = recommend_movie(user_input)
 
-    return pipeline.predict(df)
+    print("\nRecommended Movies: ")
+    for idx, movie in enumerate(results.get("recommendations",[]),start=1):
+        print(f"\n{idx}.  {movie['title']} ({movie['genre']})")
+        print(f"  {movie['overview']}")
+
