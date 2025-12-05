@@ -12,7 +12,7 @@ with open("model/preprocessing.pkl", "rb") as f:
 with open("model/rf_classifier_model.pkl", "rb") as f:
     model = pickle.load(f)
 
-content = pd.read_csv("content_cleaned.csv")
+content = pd.read_csv("model/content_cleaned.csv")
 
 MODEL_EMOTIONS = ['uplifting', 'dark', 'calm', 'intense']
 
