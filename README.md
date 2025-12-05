@@ -131,7 +131,9 @@ This mood-based recommendation system transforms Chilio's content discovery from
 
 ## DEPLOYMENT 
 
-[![Chillio](https://github.com/mshilacodes/mood-based-movie-recommender/blob/main/watching_a_movie.png)](https://mood-based-movie-recommender-evgyswjjwxejgcrymyty3u.streamlit.app/#unknown)
+<a href="https://mood-based-movie-recommender-evgyswjjwxejgcrymyty3u.streamlit.app/#unknown">
+  <img src="https://raw.githubusercontent.com/mshilacodes/mood-based-movie-recommender/main/watching_a_movie.png" width="50">
+</a>
 
 
 
