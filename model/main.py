@@ -26,7 +26,7 @@ if st.button("You Better Werk"):
     if "error" in results:
         st.error(results["error"])
     else:
-        st.success(f"Your current vibe is: **{results['mapped_emotions']}**")
+        st.success(f"Your current vibe is: **{results['user_mood']}**")
 
         st.markdown("---")
 
