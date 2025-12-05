@@ -9,7 +9,7 @@ Image by [Mikhail Nilov](https://www.pexels.com/photo/a-couple-on-a-couch-with-a
 ## ABOUT CHILIO
 Chilio Streaming isn't just another streaming service—it's where bold content meets chill vibes. We're here to spice up your screen time with a hot mix of must-watch originals, cult classics, offbeat gems, and everything in between. If it's wild, weird, or just plain addictive, it's probably on Chilio.
 Built for the binge generation, Chilio delivers a slick, no-BS viewing experience across devices, with smart discovery, zero fluff, and full-on personality. Whether you're here for late-night laughs, thrill-packed marathons, or something totally out of left field, we've got your flavor.
-We're not trying to be the biggest. Just the boldest. So grab your popcorn (or hot sauce) and let's break the algorithm.
+We're not trying to be the biggest, just the boldest. So grab your popcorn (or hot sauce) and let's break the algorithm.
 
 ***Stream bold. Chill with Chilio.***
 
@@ -17,13 +17,13 @@ We're not trying to be the biggest. Just the boldest. So grab your popcorn (or h
 Chilio's queer content is significantly underperforming due to critical content discovery and mood-matching failures. Users frequently select titles expecting one emotional experience (e.g., light and humorous) but encounter content with dramatically different emotional tones (e.g., intense and emotionally draining). This fundamental mismatch creates poor viewing experiences, drives user frustration, reduces engagement metrics, and ultimately suppresses viewership for queer content across the platform.
 
 **Current Pain Points:**
-- High abandonment rates on queer content within first 15 minutes
+- High abandonment rates on queer content within the first 15 minutes
 - Negative user feedback citing "misleading content descriptions"
 - Decreased completion rates compared to mainstream content categories
 - Users avoiding queer content due to unpredictable emotional experiences
 
 ## OBJECTIVE
-To address this critical gap, Chilio is implementing a machine learning-driven mood-based recommendation system specifically designed to personalize queer content discovery. The system will align viewer emotional states with content that matches their desired mood, particularly during high-engagement periods like Pride Month.
+To address this critical gap, Chilio is implementing a machine learning-driven mood-based recommendation system specifically designed to personalize queer content discovery. The system will align viewers' emotional states with content that matches their desired mood, particularly during high-engagement periods like Pride Month.
 
 **Expected Outcomes:** This intelligent recommendation tool will empower users to discover queer media that genuinely resonates with their current emotional needs, creating more satisfying, inclusive viewing experiences while boosting content completion rates and platform engagement.
 
@@ -41,7 +41,7 @@ This machine learning project develops a mood-based recommendation system for st
 **Data Sources**
 
 The project utilized two primary datasets:
-- LGBTQ Movies Dataset: Contains over 7,000 movies with Genre IDs but lacking explicit genre names
+- LGBTQ Movies Dataset: Contains over 7,000 movies with Genre IDs but lacks explicit genre names
 - Movie Genres Dataset: Provides the mapping between Genre IDs and descriptive genre names
 
 **Data Preprocessing** 
@@ -129,9 +129,12 @@ The current model provides sufficient accuracy for deployment, directly addressi
 
 This mood-based recommendation system transforms Chilio's content discovery from a source of user frustration into a competitive advantage. By solving the emotional tone mismatch problem, the system directly supports increased completion rates, enhanced user satisfaction, and stronger engagement with queer content—positioning Chilio as the streaming platform that truly understands its users' emotional viewing needs.
 
+## DEPLOYMENT 
+
+[![Chillio!](https://www.flaticon.com/free-icon/watching-a-movie_4221484?term=movies&page=1&position=2&origin=search&related_id=4221484)](https://mood-based-movie-recommender-evgyswjjwxejgcrymyty3u.streamlit.app/#unknown)
 
 ## NEXT STEPS
-Inorder to imporve the model the next steps include:
+In order to improve the model, the next steps include:
 
 - Expand training dataset with balanced mood representation
 - Implement ensemble methods for minority mood categories
@@ -144,9 +147,6 @@ Inorder to imporve the model the next steps include:
 [EMAIL](soniamshila@gmail.com)
 
 [LINKEDIN](https://www.linkedin.com/in/sonia-mshila-85a16b131/)
-
-
-
 
 
 
