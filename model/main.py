@@ -29,7 +29,7 @@ year_min, year_max = st.sidebar.slider(
     "Release Year Range",
     
     min_value = int(content["release_year"].min()),
-    max_value = int(content["release_year"].max())
+    max_value = int(content["release_year"].max()),
     value=(2000,2023)
 ) 
 
