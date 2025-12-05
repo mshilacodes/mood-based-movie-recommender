@@ -66,7 +66,7 @@ if st.button("You Better Werk"):
         else:
             cols =st.columns(2)    
 
-            for index, movie in recs_df.iterrows:
+            for index, movie in recs_df.iterrows():
                 col = cols[index % 2]
 
                 with col:
