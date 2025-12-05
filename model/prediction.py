@@ -4,7 +4,7 @@ import pandas as pd
 import difflib
 import random
 import os
-
+import requests
 
 with open("model/preprocessing.pkl", "rb") as f:
     preprocessing = pickle.load(f)
@@ -16,6 +16,7 @@ content = pd.read_csv("model/content_cleaned.csv")
 
 MODEL_EMOTIONS = ['uplifting', 'dark', 'calm', 'intense']
 
+TMDB_API = "a75402a07cfe5aac6472933d86a99804"
 #Emotion lexicon 
 
 EMOTIONS = {
@@ -24,6 +25,18 @@ EMOTIONS = {
     'intense': ['drama', 'struggling', 'obsession', 'wild', 'psychosexual', 'hallucinatory', 'intense', 'battle', 'conflict', 'power',  'transgression'],
     'calm': ['gentle', 'quiet', 'serene', 'peace', 'slowly', 'tender', 'acceptance', 'warm', 'soft', 'comfort', 'stable']
 }
+
+def poster(title):
+    try:
+        url = f"https://api.themoviedb.org/3/search/movie?api_key={TMDB_API}&query={title}"
+        response = requests.get(url).json()
+
+        if response["results"]:
+            poster_path = response["results"][0]["poster_path"]
+            return f"https://image.tmdb.org/t/p/w500{poster_path}"
+    except:
+        return None
+    return None
 
 
 def recommend_movie(mood:str, n_recs: int = 5):
@@ -46,12 +59,18 @@ def recommend_movie(mood:str, n_recs: int = 5):
             "title": row.get("original_title", "Unknown"),
             "genre": row.get("genre_name", "Unknown"),
             "overview": row.get("overview", "No description available.")
+            "year": row.get("release_year", "Unknown")
+            "poster_url": poster(row.get("original_title", ))
 
         })
     return{
         "user_mood": mood,
         "recommendations": recommendations
     }
+
+
+
+
 
 if __name__ == "__main__":
     user_input = input("Enter your mood:  ")
