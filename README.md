@@ -131,7 +131,11 @@ This mood-based recommendation system transforms Chilio's content discovery from
 
 ## DEPLOYMENT 
 
-![Chillio!](https://www.flaticon.com/free-icon/watching-a-movie_4221484?term=movies&page=1&position=2&origin=search&related_id=4221484)(https://mood-based-movie-recommender-evgyswjjwxejgcrymyty3u.streamlit.app/#unknown)
+[![Chillio](https://github.com/mshilacodes/mood-based-movie-recommender/blob/main/watching_a_movie.png)](https://mood-based-movie-recommender-evgyswjjwxejgcrymyty3u.streamlit.app/#unknown)
+
+
+
+
 
 ## NEXT STEPS
 In order to improve the model, the next steps include:
